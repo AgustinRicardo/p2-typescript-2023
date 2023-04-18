@@ -18,7 +18,7 @@ const renderStarWarsPeople = (people: Array<StarWarsPeople>) => {
             <div class="data">
               <div class="name">${actor.name}</div>
               <div class="email">${actor.gender}</div>
-              <button onclick="fn()">Click</button>
+              <button>Click</button>
             </div>
           </div>`;
   }
