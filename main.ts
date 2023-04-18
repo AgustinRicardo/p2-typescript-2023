@@ -1,6 +1,7 @@
-import { getStarWarsPeople } from "./starWarsPeople.ts";
+import { getStarWarsPeople } from "./starWarsPeople.js";
+import { writeFile } from "fs/promises";
+import { render } from "./render.js";
 
 const starWarsPeople = await getStarWarsPeople(1);
-console.log(starWarsPeople);
-console.log(starWarsPeople.length);
-
+const html = render(starWarsPeople);
+await writeFile('index.html', html);
