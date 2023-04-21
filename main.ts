@@ -1,4 +1,4 @@
-import { getStarWarsPeople } from "./starWarsPeople.js";
+import { getStarWarsPeople } from "./starWarsPeople.ts";
 import { writeFile } from "fs/promises";
 import { render } from "./render.js";
 

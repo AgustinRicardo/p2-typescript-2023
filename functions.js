@@ -1,10 +1,29 @@
-// Hay que poner un handler de click a TODOS los botones!
-// Y para pillarlos todos es mejor usar 'querySelectorAll'
+import fs from 'fs';
+
 document.querySelectorAll('.user .data button').forEach((button) => {
-  // Usamos el DOM para recuperar el nombre del personaje
   const name = button.parentElement.querySelector('.data .name');
-  // Ponemos el handler para clicks, que muestra el nombre en la consola
-  button.addEventListener('click', () => {
-    console.log("Has clicado: ", name.textContent);
+  button.addEventListener('click', async () => {
+    let test = await loadPeopleWorld("url");
+    let html = renderPeopleWorld(test);
+    writeFile('world.html', html);
+    window.open('http://localhost:5500/world.html', '_blank');
+    console.log(test);
   });
 });
+
+
+const loadPeopleWorld = async (url) => {
+  try {
+    response = await fetch(`https://swapi.dev/api/planets/1/`);
+    return await response.json();
+  } catch (e) {
+    return null;
+  }
+}
+
+const renderPeopleWorld = (wolrd) => {
+  return `<div class="data">
+  <div class="name">Dato de prueba</div>
+  <button>Click</button>
+</div>`;
+}
