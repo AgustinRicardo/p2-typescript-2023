@@ -17,8 +17,7 @@ const renderStarWarsPeople = (people: Array<StarWarsPeople>) => {
             <div class="data">
               <div class="name">${actor.name}</div>
               <div class="email">${actor.gender}</div>
-              <input type="hidden" value="${actor.homeworld}"> 
-              <button>Click</button>
+              <button url="${actor.homeworld}">Click</button>
             </div>
           </div>`;
   }

@@ -1,13 +1,13 @@
-import fs from 'fs';
 
 document.querySelectorAll('.user .data button').forEach((button) => {
   const name = button.parentElement.querySelector('.data .name');
-  button.addEventListener('click', async () => {
-    let test = await loadPeopleWorld("url");
-    let html = renderPeopleWorld(test);
-    writeFile('world.html', html);
-    window.open('http://localhost:5500/world.html', '_blank');
-    console.log(test);
+  button.addEventListener('click', async (e) => {
+    let { target } = e;
+    url = target.getAttribute("url");
+    let worldData = await loadPeopleWorld(url);
+    let html = renderPeopleWorld(worldData);
+    localStorage.setItem("html", html);
+    window.open('http://127.0.0.1:5500/world.html', '_blank');
   });
 });
 
@@ -24,6 +24,6 @@ const loadPeopleWorld = async (url) => {
 const renderPeopleWorld = (wolrd) => {
   return `<div class="data">
   <div class="name">Dato de prueba</div>
-  <button>Click</button>
+  <button>Back</button>
 </div>`;
 }
