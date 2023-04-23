@@ -43,8 +43,10 @@ export const render = (users: Array<StarWarsPeople>) => {
       <html>
         ${head()}
         <body>
-          ${renderStarWarsPeople(users)}
-          <script src="functions.js"></script>          
+            <div id="content">
+              ${renderStarWarsPeople(users)}
+            </div>
+          <script src="functions.js"></script>         
         </body>        
       </html>
       `;
