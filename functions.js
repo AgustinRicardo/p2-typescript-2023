@@ -1,5 +1,9 @@
 document.addEventListener("DOMContentLoaded", async (e) => {
   addDetailClick();
+  const actualPage = localStorage.getItem("actualPage");
+  if(actualPage && actualPage !== ""){
+    await renderPeople(actualPage);
+  }
 });
 
 const addDetailClick = () => {
@@ -13,18 +17,20 @@ const addDetailClick = () => {
   });
 };
 
-
-
-
 document.querySelectorAll('button.paginate').forEach((button) => {
   button.addEventListener('click', async (e) => {
     let { target } = e;
     const url = target.getAttribute("url");
-    const { previous, next, results } = await getStarWarsPeople(url);
-    setPaginateBotonStatus(previous, next);
-    setStarWarPeople(results);
+    localStorage.setItem("actualPage", url);
+    await renderPeople(url);
   });
 });
+
+const renderPeople = async (url) => {
+  const { previous, next, results } = await getStarWarsPeople(url);
+  setPaginateBotonStatus(previous, next);
+  setStarWarPeople(results);
+} 
 
 const setStarWarPeople = (results) => {
 
@@ -39,6 +45,7 @@ const setStarWarPeople = (results) => {
   for(item of results.slice(5, 10)) {
     addPeople(item, "second");
   };
+
   addDetailClick();
 };
 
