@@ -3,19 +3,19 @@ body{
     color: white;
   }
 
-div .pair,
+div.pair,
 .people-content {
   display: flex;
   flex-direction: row;
 }
 
-div .info {
+div.info {
   width: 10rem;
   text-align: justify;
   padding-left: 1rem;
 }
 
-div .people {
+div.people {
   text-align: center;
   width: 50rem;
 }
@@ -25,6 +25,14 @@ div .people {
   text-align:center;
 }
 
-div .data {
+div.data {
   padding-bottom: 2rem;
+}
+
+div.pagination {
+  text-align: center;
+}
+
+button.previous {
+  margin-right: 5rem;
 }

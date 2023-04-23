@@ -1,7 +1,7 @@
 
 
 
-window.addEventListener("DOMContentLoaded", async (event) => {
+window.addEventListener("DOMContentLoaded", async () => {
     const urlPeople= localStorage.getItem("urlPeople");
     let peopleJson  = { homeworld } = await getInformation(urlPeople);
     const worldJson = await getInformation(homeworld);
@@ -32,14 +32,3 @@ const renderPeopleWorld = (peopleJson, worldJson) => {
     </div>
     <input type="button" value="Go back!" onclick="history.back()">`;
 }
-
-/*public name: string,
-    public height: string,
-    public mass: string,
-    public hair_color: string,
-    public skin_color: string,
-    public eye_color: string,
-    public birth_year: string,
-    public gender: string,
-    public homeworld: string,
-    public url: string */

@@ -43,12 +43,14 @@ export const render = (users: Array<StarWarsPeople>) => {
       <html>
         ${head()}
         <body>
-            <div class="people-content">
+          <div class="pagination"><button class="paginate previous" url="" disabled><<<<<</button><button class="paginate next" url="https://swapi.dev/api/people/?page=2">>>>>></button></div>
+            <div class="people-content first">
               ${renderStarWarsPeople(users.slice(0, 5))}
             </div>
-            <div class="people-content">
+            <div class="people-content second">
               ${renderStarWarsPeople(users.slice(5, 10))}
             </div>
+          <div class="pagination"><button class="paginate previous" url="" disabled><<<<<</button><button class="paginate next" url="https://swapi.dev/api/people/?page=2">>>>>></button></div>
           <script src="functions.js"></script>         
         </body>        
       </html>
