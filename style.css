@@ -3,7 +3,8 @@ body{
     color: white;
   }
 
-div .pair {
+div .pair,
+.people-content {
   display: flex;
   flex-direction: row;
 }
@@ -12,6 +13,11 @@ div .info {
   width: 10rem;
   text-align: justify;
   padding-left: 1rem;
+}
+
+div .people {
+  text-align: center;
+  width: 50rem;
 }
 
 #content {

@@ -43,8 +43,11 @@ export const render = (users: Array<StarWarsPeople>) => {
       <html>
         ${head()}
         <body>
-            <div id="content">
-              ${renderStarWarsPeople(users)}
+            <div class="people-content">
+              ${renderStarWarsPeople(users.slice(0, 5))}
+            </div>
+            <div class="people-content">
+              ${renderStarWarsPeople(users.slice(5, 10))}
             </div>
           <script src="functions.js"></script>         
         </body>        
