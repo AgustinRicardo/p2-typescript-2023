@@ -2,3 +2,16 @@ body{
     background: url(images/stars.jpg);
     color: white;
   }
+
+.people {
+  align-items: center;
+}
+
+div .pair {
+  display: flex;
+  flex-direction: row;
+}
+
+div .data {
+  width: 10rem;
+}
