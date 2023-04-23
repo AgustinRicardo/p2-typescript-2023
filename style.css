@@ -3,15 +3,22 @@ body{
     color: white;
   }
 
-.people {
-  align-items: center;
-}
-
 div .pair {
   display: flex;
   flex-direction: row;
 }
 
-div .data {
+div .info {
   width: 10rem;
+  text-align: justify;
+  padding-left: 1rem;
+}
+
+#content {
+  display:inline-block;
+  text-align:center;
+}
+
+div .data {
+  padding-bottom: 2rem;
 }

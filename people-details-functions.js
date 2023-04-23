@@ -3,10 +3,9 @@
 
 window.addEventListener("DOMContentLoaded", async (event) => {
     const urlPeople= localStorage.getItem("urlPeople");
-    let peopleJson  = { homeworld, name } = await getInformation(urlPeople);
+    let peopleJson  = { homeworld } = await getInformation(urlPeople);
     const worldJson = await getInformation(homeworld);
     const html = renderPeopleWorld(peopleJson, worldJson);
-    document.querySelector("h1").textContent = name;
     document.querySelector("#content").innerHTML = html;
 });
 
@@ -19,16 +18,17 @@ const getInformation = async (url) => {
     }
 }
   
-  const renderPeopleWorld = (peopleJson, worldJson) => {
+const renderPeopleWorld = (peopleJson, worldJson) => {
     const { name, mass, hair_color, skin_color, eye_color, birth_year, gender } = peopleJson;
-    return `<div>
-    <div class="pair"> <div class="data">Gender: </div><div>${gender}</div></div>
-    <div class="pair"> <div class="data">Birth year: </div><div>${birth_year}</div></div>
-    <div class="pair"> <div class="data">Hair color: </div><div>${hair_color}</div></div>
-    <div class="pair"> <div class="data">Skin color: </div><div>${skin_color}</div></div>
-    <div class="pair"> <div class="data">Eye color: </div><div>${eye_color}</div></div>
-    <div class="pair"> <div class="data">Mass: </div><div>${mass} Kg</div></div>
-    <div class="pair"> <div class="data">Home world: </div><div>${worldJson.name} Kg</div></div>
+    return `<div class="data">    
+    <h1>${name}</h1>
+    <div class="pair"> <div class="info">Gender: </div><div>${gender}</div></div>
+    <div class="pair"> <div class="info">Birth year: </div><div>${birth_year}</div></div>
+    <div class="pair"> <div class="info">Hair color: </div><div>${hair_color}</div></div>
+    <div class="pair"> <div class="info">Skin color: </div><div>${skin_color}</div></div>
+    <div class="pair"> <div class="info">Eye color: </div><div>${eye_color}</div></div>
+    <div class="pair"> <div class="info">Mass: </div><div>${mass} Kg</div></div>
+    <div class="pair"> <div class="info">Home world: </div><div>${worldJson.name}</div></div>
     </div>
     <input type="button" value="Go back!" onclick="history.back()">`;
 }
